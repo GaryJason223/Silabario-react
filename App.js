@@ -1,17 +1,19 @@
-import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-
-const instructions = Platform.select({
-  ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
-  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
-});
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit App.js</Text>
-      <Text style={styles.instructions}>{instructions}</Text>
+      <View style={styles.card}>
+      <Text style={styles.titleText}>SILABARIO</Text>
+      <Text style={styles.subtitleText}>Hispanoamericano</Text>
+      <StatusBar style="auto" />
+      <TouchableOpacity style={styles.startButton} onPress={() => Alert.alert('quiondas jason!?')}>
+        <Text style={styles.startText}>Iniciar</Text>
+      </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -19,18 +21,35 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#f9bf5f',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'center',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  card: {
+    flex: 1,
+    backgroundColor: 'white',
+    borderRadius: 40,
+    padding: 30,
+    margin: 30,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  titleText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#4a3d88',
   },
+  subtitleText: {
+    color: 'black',
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  startButton: {
+    backgroundColor: '#005bda',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    justifyContent: 'center'
+  },
+  startText: {
+    color: 'white'
+  }
 });
